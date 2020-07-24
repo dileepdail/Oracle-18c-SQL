@@ -113,6 +113,54 @@ Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
     select DISTINCT last_name from employee;
 
     select DISTINCT last_name, department_id from employee;
+    
+    --IN and NOT IN
+
+    select * from employee
+    where last_name ='Berry'
+    OR last_name ='Foster'
+    OR last_name ='Powell'
+    OR last_name ='Burns'
+    OR last_name ='Jones';
+
+    select * from employee
+    where last_name IN('Berry','Foster','Powell','Burns','Jones');
+
+    select * from employee
+    where last_name NOT IN ('Berry','Foster','Powell','Burns','Jones');
+
+    --BETWEEN and NOT BETWEEN
+
+    select * from employee
+    where salary
+    BETWEEN 100000 AND 200000;
+
+    select * from employee
+    where hire_date
+    BETWEEN '15-NOV-15'
+    AND '17-JUL-16';
+
+    select * from employee
+    where hire_date
+    NOT BETWEEN '15-NOV-10'
+    AND '17-JUL-16';
+
+    --ALL keyword
+    --Oposite to IN which uses OR comparison in values
+    --ALL uses AND in all values
+
+    select * from employee
+    where salary < ALL(30000,40000,50000);
+
+    select * from employee
+    where salary = ALL(30000);
+
+
+    --ANY keyword
+    --column = ANY() Column needs to match at least one of the values in the list
+
+    select * from employee
+    where salary = ANY(30000,40000,50000);
         
 
 

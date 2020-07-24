@@ -2,11 +2,11 @@
 Oracle SQL Basic Queries and Concepts
 
 ###### Download Oracle Database Express Edition (XE)
-Link: https://www.oracle.com/database/technologies/xe-downloads.html
+Link: https://www.oracle.com/database/technologies/xe-downloads.html  
 *Check on Oracle Website
 
 ###### Download Oracle SQL Developer
-Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
+Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html  
 *Check on Oracle Website
 
 ###### Create New Connetion in Oracle SQL Developer

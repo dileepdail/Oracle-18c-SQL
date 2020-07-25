@@ -254,7 +254,7 @@ Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
     
  ## Aggregate Functions and Grouping
  
- ###### Conting Data
+ ###### Counting Data
     
     --Total number of record in table
     select count(*) from employee;
@@ -348,40 +348,89 @@ Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
 
 1. Inner Join: Linked two tables based on a common value.
 
-    SELECT e.employee_id,
-    e.first_name,
-    e.salary,
-    d.department_name,
-    d.department_id
-    FROM employee e
-    JOIN department d
-    ON e.department_id = d.department_id
-    WHERE e.salary > 400000;
+        SELECT e.employee_id,
+        e.first_name,
+        e.salary,
+        d.department_name,
+        d.department_id
+        FROM employee e
+        JOIN department d
+        ON e.department_id = d.department_id
+        WHERE e.salary > 400000;
     
 2. Left Outer Join: Include all value from table 1 and include matching value or NULL from table 2
 
-    SELECT c.customer_id,
-    c.first_name,
-    c.last_name,
-    co.order_date,
-    d.department_id
-    FROM customer c
-    LEFT JOIN customer_order co
-    ON c.customer_id = co.customer_id;
-
+        SELECT c.customer_id,
+        c.first_name,
+        c.last_name,
+        co.order_date,
+        d.department_id
+        FROM customer c
+        LEFT JOIN customer_order co
+        ON c.customer_id = co.customer_id;
     
+3. Right Outer Join: Include all value from table 2 and include matching value or NULL from table 1
 
-
-
+        SELECT c.customer_id,
+        c.first_name,
+        c.last_name,
+        co.order_date,
+        d.department_id
+        FROM customer c
+        RIGHT JOIN customer_order co
+        ON c.customer_id = co.customer_id;
     
+4. Full Outer Join: Combination of Left joins and Right joins
 
+        SELECT c.customer_id,
+        c.first_name,
+        c.last_name,
+        co.order_date,
+        d.department_id
+        FROM customer c
+        FULL JOIN customer_order co
+        ON c.customer_id = co.customer_id;
+    
+5. Natural Join: Two tables joined on columns that have the same names
+*Node need to specify the columns
 
+        --All the columns are same in both tables
+        SELECT product_id,
+        product_name,
+        department_id,
+        department_name
+        FROM product
+        NATURAL JOIN department;
+    
+        --With partial common column
+        SELECT e.employee_id,
+        e.first_name,
+        e.last_name,
+        department_id, --common column
+        d.department_name
+        FROM employee e
+        NATURAL JOIN department d;
+    
+5. Cartesian or Cross Join: Every record in one table is joined to every record in another table
+        
+        SELECT employee_id,
+        first_name,
+        last_name,
+        department_name
+        FROM employee, department;
+    
+6. Self Join: Join a table to itself. Used when a record in a table is related to another record in the same table
 
+        SELECT emp.employee_id,
+        emp.first_name,
+        emp.last_name,
+        emp.manager_id,
+        mgr.first_name,
+        mgr.last_name
+        FROM employee emp
+        LEFT JOIN emploee mgr 
+        ON emp.manager_id=mgr.employee_id;
         
 
 
-
-
-
-
-
+        

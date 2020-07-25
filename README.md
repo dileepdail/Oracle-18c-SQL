@@ -342,6 +342,34 @@ Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
 ###### Column Aliases
 
     select count(*) AS no_of_employee from employee;
+    
+###### What are joins
+*Query from two tables at once, linked using a common value
+
+1. Inner Join: Linked two tables based on a common value.
+
+    SELECT e.employee_id,
+    e.first_name,
+    e.salary,
+    d.department_name,
+    d.department_id
+    FROM employee e
+    JOIN department d
+    ON e.department_id = d.department_id
+    WHERE e.salary > 400000;
+    
+2. Left Outer Join: Include all value from table 1 and include matching value or NULL from table 2
+
+    SELECT c.customer_id,
+    c.first_name,
+    c.last_name,
+    co.order_date,
+    d.department_id
+    FROM customer c
+    LEFT JOIN customer_order co
+    ON c.customer_id = co.customer_id;
+
+    
 
 
 

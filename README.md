@@ -431,6 +431,109 @@ Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
         LEFT JOIN emploee mgr 
         ON emp.manager_id=mgr.employee_id;
         
+        
+## Functions
+
+###### String Functions
+
+*Eg. LENGTH(first_name): Returns the length of the value
+
+###### Nested Functions
+
+*Eg. SUBSTR(email_address, INSTR(email_address, '@'), LENGTH(email_address))
+
+###### Number Functions
+
+*Eg. Price: 149.95
+
+1. ROUND: Rounds the nearest whole number or specified decimal places
+*ROUND(price)
+*Output: 150
+
+2. FLOOR: Rounds down the nearest whole number
+*FLOO(price)
+*Output: 149
+
+3. CEIL: Rounds up the nearest whole number
+*CEIL(price)
+*Output: 150
+
+###### Date Functions
+
+1. SYSYDATE: current date
+
+        SELECT employee_id,
+        SYSDATE
+        FROM employee;
+
+2. ADD_MONTHS: Adds a number of months to a date value
+
+        SELECT employee_id,
+        SYSDATE,
+        ADD_MONTHS(hire_date, 6) AS review_date
+        FROM employee;
+
+3. MONTHS_BETWEEN: Finds the diffrence between two date values
+
+        SELECT employee_id,
+        SYSDATE AS curr_date,
+        ADD_MONTHS(hire_date, 6) AS review_date,
+        MONTHS_BETWEEN(hire_date, SYSDATE) AS time_with_company
+        FROM employee;
+        
+###### Data Types and Conversion Functions
+
+*Broadly: String Types, NUmber Types, or Date Types
+
+Common Data Types:
+
+1. CHAR: Character String with fixed size
+
+2. VARCHAR2: Character String with variable size
+
+3. NUMBER: Stores numeric data with optional decimals
+
+4. DATE: Stores date and time
+
+5. TIMESTAMP: Stores date, time, and fractional seconds
+
+6. CLOB: Stores large amount of text.
+
+Convrting:
+
+1. TO_CHAR: Converts a DATE or INTERVAL value to a string in a specified date format 
+        
+        SELECT employee_id,
+        hire_date,
+        TO_CHAR(hire_date, 'YYYY_MM_DD')
+        FROM employee;
+        
+2. TO_DATE: Converts a string to a date.
+
+        SELECT TO_DATE('2017_05_28','YYYY_MM_DD')
+        FROM dual;
+
+3. TO_NUMBER: Converts a string to a number.
+
+        SELECT TO_NUMBER('200')
+        FROM dual;
+        
+###### The CASE Statement
+
+*Perform conditional login in SQL
+*IF THEN ELSE
+
+        SELECT product_id,
+        product_name,
+        price,
+        CASE
+        WHEN price > 100 THEN 'Over 100'
+        WHEN price < 100 THEN 'Less than 100'
+        ELSE '100'
+        END price_group
+        FROM product;
+        
+        
 
 
         

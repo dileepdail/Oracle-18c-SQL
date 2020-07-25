@@ -329,6 +329,21 @@ Link: https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
 
     select AVG(salary) 
     from employee;
+    
+
+## Joins
+
+###### Table Aliases
+*Aliases = shorter names for tables
+
+    select e.department_id 
+    from employee e;
+    
+###### Column Aliases
+
+    select count(*) AS no_of_employee from employee;
+
+
 
     
 

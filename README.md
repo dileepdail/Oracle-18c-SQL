@@ -532,8 +532,99 @@ Convrting:
         ELSE '100'
         END price_group
         FROM product;
-        
-        
 
 
-        
+## Inserting, Updating, and Deleting Data
+
+###### Inserting Data
+
+    INSERT INTO table
+    (column1, column2, ... )
+    VALUES
+    (expression1, expression2, ... );
+    
+    INSERT ALL
+    INTO table (column1, column2, ... ) VALUES (expression1, expression2, ... )
+    INTO table (column1, column2, ... ) VALUES (expression1, expression2, ... )
+    INTO table (column1, column2, ... ) VALUES (expression1, expression2, ... );
+    
+###### Inserting Data From Another Table
+
+    INSERT INTO table
+    (column1, column2, ... )
+    SELECT expression1, expression2, ...
+    FROM source_tables
+    [WHERE conditions];
+    
+###### Updating Data
+
+    UPDATE employee
+    SET salary=800000
+    WHERE employee_id=55;
+    
+    UPDATE employee
+    SET salary=slary+20000
+    WHERE employee_id=55;
+    
+###### Deleting Data
+
+    DELETE from employee
+    WHERE employee_id=55;
+    
+###### COMMIT and ROLLBACK
+
+    COMMIT;
+    ROLLBACK;
+    
+###### Truncating Data
+
+Removes data from table  
+Simlar to DELETE with no WHERE condition  
+*NO ROLL BACK allowed
+
+    TRUNCATE table customer_order;
+    
+
+## Creating, Altering, and Dropping Tables
+
+###### DML: Data Manipuation Language
+
+*Statemets that change or manipulate data
+
+1. SELECT
+2. INSERT
+3. UPDATE
+5. DELETE
+
+###### DDL: Data Definition Language
+
+*Statemets that define objects, such as table
+
+###### CREATE Table
+
+    CREATE TABLE customers
+    ( customer_id number(10) NOT NULL,
+      customer_name varchar2(50) NOT NULL,
+      city varchar2(50)
+    );
+    
+###### ALTER a Table
+
+    ALTER TABLE employee
+    ADD job_description VARCHAR2(200);
+    
+    ALTER TABLE employee
+    DROP COLUMN job_description;
+    
+    ALTER TABLE employee
+    RENAME COLUMN job_description TO job_details;
+    
+    ALTER TABLE job_role
+    RENAME TO job_title;
+    
+###### DROP a Table
+
+    DROP TABLE job_role
+    
+    
+*Reference: Oracle SQL - A Complete Introduction By Ben Brumm
